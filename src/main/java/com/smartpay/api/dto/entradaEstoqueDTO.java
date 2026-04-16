@@ -1,28 +1,11 @@
-package com.smartpay.api.model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+package com.smartpay.api.dto;
 
 import java.time.LocalDateTime;
-@Entity
-public class EntradaEstoque {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+public class entradaEstoqueDTO {
     private Long produto_id;
     private int quantidade;
     private LocalDateTime data_entrada;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getProduto_id() {
         return produto_id;
@@ -47,5 +30,5 @@ public class EntradaEstoque {
     public void setData_entrada(LocalDateTime data_entrada) {
         this.data_entrada = data_entrada;
     }
-
 }
+

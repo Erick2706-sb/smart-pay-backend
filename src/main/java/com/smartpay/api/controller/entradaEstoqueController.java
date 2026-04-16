@@ -1,12 +1,11 @@
 package com.smartpay.api.controller;
 
+import com.smartpay.api.dto.entradaEstoqueDTO;
 import com.smartpay.api.model.EntradaEstoque;
-import com.smartpay.api.model.Produto;
 import com.smartpay.api.service.entradaEstoqueService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -24,5 +23,13 @@ public class entradaEstoqueController {
         return service.listarTodos();
     }
 
+    @PostMapping("/criar")
+    public EntradaEstoque criar(@RequestBody entradaEstoqueDTO dto){
+        EntradaEstoque entradaEstoque= new EntradaEstoque();
+        entradaEstoque.setProduto_id(dto.getProduto_id());
+        entradaEstoque.setQuantidade(dto.getQuantidade());
+        entradaEstoque.setData_entrada(LocalDateTime.now());
+        return service.salvar(entradaEstoque);
+    }
 
 }
