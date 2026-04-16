@@ -1,21 +1,20 @@
 package com.smartpay.api.controller;
 
 
-import com.smartpay.api.dto.produtoRequest;
-import com.smartpay.api.dto.produtoResponse;
+import com.smartpay.api.dto.ProdutoDTO;
 import com.smartpay.api.model.Produto;
-import com.smartpay.api.service.produtoService;
+import com.smartpay.api.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("api/produtos")
-public class produtoController {
+public class ProdutoController {
 
-    private final produtoService service;
+    private final ProdutoService service;
 
-    public produtoController(produtoService service)
+    public ProdutoController(ProdutoService service)
     {
         this.service = service;
     }
@@ -33,12 +32,13 @@ public class produtoController {
     }
 
     @PostMapping("/criar")
-     public produtoResponse criar(@RequestBody produtoRequest request){
-        return service.criarProduto(request);
+     public Produto criar(@RequestBody ProdutoDTO dto)
+    {
+        return service.criarProduto(dto);
     }
 
     @PutMapping("/atualizar/{id}")
-    public produtoResponse atualizar(@PathVariable Long id, @RequestBody produtoRequest request) {
-        return service.atualizar(id, request);
+    public Produto atualizar(@PathVariable Long id, @RequestBody ProdutoDTO dto) {
+        return service.atualizar(id, dto);
     }
 }

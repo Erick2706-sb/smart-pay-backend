@@ -2,7 +2,7 @@ package com.smartpay.api.dto;
 
 import java.time.LocalDateTime;
 
-public class entradaEstoqueDTO {
+public class EntradaEstoqueDTO {
     private Long produto_id;
     private int quantidade;
     private LocalDateTime data_entrada;
