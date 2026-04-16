@@ -2,21 +2,12 @@ package com.smartpay.api.dto;
 
 import java.math.BigDecimal;
 
-public class produtoResponse {
-    private Long id;
+public class ProdutoDTO {
     private String nome;
     private String modelo;
     private String fabricante;
     private BigDecimal preco;
     private Integer quantidade;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
